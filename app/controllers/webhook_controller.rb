@@ -32,36 +32,42 @@ class WebhookController < ApplicationController
 					      "text": "応募しますか？",
 					      "actions": [
 					          {
-					            "type": "message",
+					            "type": "postback",
 					            "label": "応募する！",
-					            "text": "応募する！"
+					            "displaytext": "応募する！"
+					            "data": "応募する！"
 					          },
 					          {
-					            "type": "message",
+					            "type": "postback",
 					            "label": "応募しない",
-					            "text": "応募しない"
+					            "displaytext": "応募しない"
+					            "data": "応募しない"
 					          }
 					      ]
 					  }
 					}
             		client.reply_message(event['replyToken'], message)
-            	when "応募する！"
-        	  		message = {
-					  "type": "text",
-					  "text": "ありがとね！",
-					}
-            		client.reply_message(event['replyToken'], message)
-            		userId = event['source']['userId']  #userId取得
-    				p 'UserID: ' + userId # UserIdを確認
-    			when "応募しない"
-    				message = {
-					  "type": "text",
-					  "text": "またね",
-					}
-            		client.reply_message(event['replyToken'], message)
             	end
               end
-        	end
+
+	        when Line::Bot::Event::Postback
+	        	case event.data['data']
+	        	when "応募する！"
+	        		message = {
+			          type: 'text',
+			          text: "ありがとう！"
+			        }
+			        client.reply_message(event['replyToken'], postback)
+
+	        	when "応募しない"
+	        		message = {
+			          type: 'text',
+			          text: "またね"
+			        }
+			        client.reply_message(event['replyToken'], postback)
+
+	        	end
+	        end
   		end
 	end
 
