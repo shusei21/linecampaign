@@ -26,23 +26,30 @@ class WebhookController < ApplicationController
         	  	if event.message['text'] == "プレゼントキャンペーン"
         	  		message = {
 					  "type": "template",
-					  "altText": "this is a confirm template",
+					  "altText": "キャンペーン応募確認",
 					  "template": {
 					      "type": "confirm",
 					      "text": "応募しますか？",
 					      "actions": [
 					          {
 					            "type": "message",
-					            "label": "Yes",
-					            "text": "yes"
+					            "label": "応募する！",
+					            "text": "応募する！"
 					          },
 					          {
 					            "type": "message",
-					            "label": "No",
-					            "text": "no"
+					            "label": "応募しない",
+					            "text": "応募しない"
 					          }
 					      ]
 					  }
+					}
+            		client.reply_message(event['replyToken'], message)
+            	end
+            	if event.message['text'] == "応募する！"
+        	  		message = {
+					  "type": "text",
+					  "text": "ありがとね！",
 					}
             		client.reply_message(event['replyToken'], message)
             	end
