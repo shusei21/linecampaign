@@ -52,6 +52,11 @@ class WebhookController < ApplicationController
 	        when Line::Bot::Event::Postback
 	        	case event['postback']['data']
 	        	when "応募する！"
+
+	        		uid = event['source']['userId']  #userId取得
+	        		post = Post.new(uid)
+	        		post.save
+
 	        		message = {
 			          type: 'text',
 			          text: "ありがとう！"
