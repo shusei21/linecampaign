@@ -56,7 +56,7 @@ class WebhookController < ApplicationController
 			          type: 'text',
 			          text: "ありがとう！"
 			        }
-			        client.reply_message(event['replyToken'], postback)
+			        client.reply_message(event['replyToken'], message)
 
 	        	when "応募しない"
 	        		message = {
