@@ -26,7 +26,7 @@ class WebhookController < ApplicationController
         	  	if event.message['text'] == "あ"
         	  		message = {
             		  type: 'text',
-            		  text: event.message['text']
+            		  text: event.message['text'] & "じゃないよ！"
             		}
             		client.reply_message(event['replyToken'], message)
             	end
