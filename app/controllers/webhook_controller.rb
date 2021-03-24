@@ -15,7 +15,7 @@ class WebhookController < ApplicationController
   		body = request.body.read
   		events = client.parse_events_from(body)
   		
-  		events.each { |event|
+  		events.each do |event|
     	userId = event['source']['userId']  #userId取得
     	p 'UserID: ' + userId # UserIdを確認
   		end
