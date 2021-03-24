@@ -33,13 +33,13 @@ class WebhookController < ApplicationController
 					          {
 					            "type": "postback",
 					            "label": "応募する！",
-					            "displaytext": "応募する！",
+					            "displayText": "応募する！",
 					            "data": "応募する！",
 					          },
 					          {
 					            "type": "postback",
 					            "label": "応募しない",
-					            "displaytext": "応募しない",
+					            "displayText": "応募しない",
 					            "data": "応募しない",
 					          }
 					      ]
