@@ -16,14 +16,14 @@ class WebhookController < ApplicationController
   		events = client.parse_events_from(body)
   		
   		events.each do |event|
-    	userId = event['source']['userId']  #userId取得
-    	p 'UserID: ' + userId # UserIdを確認
+    	
     	respons = event.message['text'] + "じゃないよ！"
     		case event
         	when Line::Bot::Event::Message
         	  case event.type
         	  when Line::Bot::Event::MessageType::Text
-        	  	if event.message['text'] == "プレゼントキャンペーン"
+        	  	case event.message['text'] 
+        	  	when "プレゼントキャンペーン"
         	  		message = {
 					  "type": "template",
 					  "altText": "キャンペーン応募確認",
@@ -45,11 +45,18 @@ class WebhookController < ApplicationController
 					  }
 					}
             		client.reply_message(event['replyToken'], message)
-            	end
-            	if event.message['text'] == "応募する！"
+            	when "応募する！"
         	  		message = {
 					  "type": "text",
 					  "text": "ありがとね！",
+					}
+            		client.reply_message(event['replyToken'], message)
+            		userId = event['source']['userId']  #userId取得
+    				p 'UserID: ' + userId # UserIdを確認
+    			when "応募しない"
+    				message = {
+					  "type": "text",
+					  "text": "またね",
 					}
             		client.reply_message(event['replyToken'], message)
             	end
