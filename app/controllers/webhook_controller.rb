@@ -23,11 +23,27 @@ class WebhookController < ApplicationController
         	when Line::Bot::Event::Message
         	  case event.type
         	  when Line::Bot::Event::MessageType::Text
-        	  	if event.message['text'] == "あ"
+        	  	if event.message['text'] == "プレゼントキャンペーン"
         	  		message = {
-            		  type: 'text',
-            		  text: respons
-            		}
+					  "type": "template",
+					  "altText": "this is a confirm template",
+					  "template": {
+					      "type": "confirm",
+					      "text": "応募しますか？",
+					      "actions": [
+					          {
+					            "type": "message",
+					            "label": "Yes",
+					            "text": "yes"
+					          },
+					          {
+					            "type": "message",
+					            "label": "No",
+					            "text": "no"
+					          }
+					      ]
+					  }
+					}
             		client.reply_message(event['replyToken'], message)
             	end
               end
