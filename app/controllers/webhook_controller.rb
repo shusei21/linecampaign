@@ -18,7 +18,7 @@ class WebhookController < ApplicationController
   		events.each do |event|
     	userId = event['source']['userId']  #userId取得
     	p 'UserID: ' + userId # UserIdを確認
-
+    	respons = event.message['text'] + "じゃないよ！"
     		case event
         	when Line::Bot::Event::Message
         	  case event.type
@@ -26,7 +26,7 @@ class WebhookController < ApplicationController
         	  	if event.message['text'] == "あ"
         	  		message = {
             		  type: 'text',
-            		  text: event.message['text'] & "じゃないよ！"
+            		  text: respons
             		}
             		client.reply_message(event['replyToken'], message)
             	end
