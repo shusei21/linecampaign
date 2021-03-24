@@ -63,7 +63,7 @@ class WebhookController < ApplicationController
 			          type: 'text',
 			          text: "またね"
 			        }
-			        client.reply_message(event['replyToken'], postback)
+			        client.reply_message(event['replyToken'], message)
 
 	        	end
 	        end
