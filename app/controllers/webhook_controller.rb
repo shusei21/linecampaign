@@ -50,7 +50,7 @@ class WebhookController < ApplicationController
               end
 
 	        when Line::Bot::Event::Postback
-	        	case event.postback['data']
+	        	case event['postback']['data']
 	        	when "応募する！"
 	        		message = {
 			          type: 'text',
