@@ -17,7 +17,6 @@ class WebhookController < ApplicationController
   		
   		events.each do |event|
     	
-    	respons = event.message['text'] + "じゃないよ！"
     		case event
         	when Line::Bot::Event::Message
         	  case event.type
@@ -34,14 +33,14 @@ class WebhookController < ApplicationController
 					          {
 					            "type": "postback",
 					            "label": "応募する！",
-					            "displaytext": "応募する！"
-					            "data": "応募する！"
+					            "displaytext": "応募する！",
+					            "data": "応募する！",
 					          },
 					          {
 					            "type": "postback",
 					            "label": "応募しない",
-					            "displaytext": "応募しない"
-					            "data": "応募しない"
+					            "displaytext": "応募しない",
+					            "data": "応募しない",
 					          }
 					      ]
 					  }
@@ -51,7 +50,7 @@ class WebhookController < ApplicationController
               end
 
 	        when Line::Bot::Event::Postback
-	        	case event.data['data']
+	        	case event.postback['data']
 	        	when "応募する！"
 	        		message = {
 			          type: 'text',
