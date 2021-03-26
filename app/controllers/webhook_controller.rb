@@ -54,8 +54,7 @@ class WebhookController < ApplicationController
 	        	when "応募する！"
 
 	        		uid = event['source']['userId']  #userId取得
-	        		post = Post.new
-	        		post.user_id = uid
+	        		post = Post.new(user_id:uid)
 	        		post.save
 
 	        		message = {
