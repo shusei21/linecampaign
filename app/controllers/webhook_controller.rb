@@ -54,14 +54,25 @@ class WebhookController < ApplicationController
 	        	when "応募する！"
 
 	        		uid = event['source']['userId']  #userId取得
-	        		post = Post.new(user_id:uid)
-	        		post.save
+
+	        		if User.find_by(user_id:uid) == nil
+
+	        		user = User.new(user_id:uid)
+	        		user.save
 
 	        		message = {
 			          type: 'text',
 			          text: "ありがとう！"
 			        }
 			        client.reply_message(event['replyToken'], message)
+
+			    	else
+			    	message = {
+			          type: 'text',
+			          text: "既に応募済です。"
+			        }
+			        client.reply_message(event['replyToken'], message)
+
 
 	        	when "応募しない"
 	        		message = {

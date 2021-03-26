@@ -47,6 +47,8 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    attr_encrypted (3.1.0)
+      encryptor (~> 3.0.0)
     bindex (0.8.1)
     bootsnap (1.7.2)
       msgpack (~> 1.0)
@@ -73,6 +75,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
+    encryptor (3.0.0)
     erubi (1.10.0)
     execjs (2.7.0)
     ffi (1.15.0)
@@ -193,6 +196,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  attr_encrypted
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
