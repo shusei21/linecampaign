@@ -73,6 +73,8 @@ class WebhookController < ApplicationController
 			        }
 			        client.reply_message(event['replyToken'], message)
 
+			        end
+
 
 	        	when "応募しない"
 	        		message = {
