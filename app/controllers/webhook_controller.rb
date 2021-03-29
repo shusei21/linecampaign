@@ -61,8 +61,9 @@ class WebhookController < ApplicationController
 	        	when "応募する！"
 
 	        		uid = event['source']['userId']  #userId取得
+	        		user = User.where(user_id:uid)
 
-	        		if User.where(user_id:uid) == nil
+	        		if user == nil
 
 	        		user = User.new(user_id:uid)
 	        		user.save
@@ -74,9 +75,9 @@ class WebhookController < ApplicationController
 			        client.reply_message(event['replyToken'], message)
 
 
-			    	elsif User.find_by(user_id:uid)["campaign_flag"] == false
+			    	elsif user.campaign_flag == false
 			    	
-			    	User.find_by(user_id:uid)["campaign_flag"] = true
+			    	user.update(campaign_flag: true)
 			    	message = {
 			          type: 'text',
 			          text: "ありがとう！！"
