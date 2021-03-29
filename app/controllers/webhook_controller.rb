@@ -74,9 +74,9 @@ class WebhookController < ApplicationController
 			        client.reply_message(event['replyToken'], message)
 
 
-			    	elsif User.where(user_id:uid)("campaign_flag") == false
+			    	elsif User.find_by(user_id:uid).campaign_flag == false
 			    	
-			    	User.where(user_id:uid)("campaign_flag") = true
+			    	User.find_by(user_id:uid).campaign_flag = true
 			    	message = {
 			          type: 'text',
 			          text: "ありがとう！！"
