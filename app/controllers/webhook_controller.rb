@@ -13,6 +13,12 @@ class WebhookController < ApplicationController
 
     def recieve
   		body = request.body.read
+
+	  	signature = request.env['HTTP_X_LINE_SIGNATURE']
+	    unless client.validate_signature(body, signature)
+	    head :bad_request
+	    end
+
   		events = client.parse_events_from(body)
   		
   		events.each do |event|
