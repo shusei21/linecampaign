@@ -52,6 +52,14 @@ class WebhookController < ApplicationController
 					  }
 					}
             		client.reply_message(event['replyToken'], message)
+
+            	when "あいうえお"
+            		message = {
+            			"type": "text",
+            			"text": "かきくけこ",
+            		client.reply_message(event['replyToken'], message)
+            		}
+
             	end
               end
 
