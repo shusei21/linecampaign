@@ -55,7 +55,7 @@ class WebhookController < ApplicationController
 
 	        		uid = event['source']['userId']  #userId取得
 
-	        		if User.find_by(user_id:uid) == nil
+	        		if User.where(user_id:uid) == nil
 
 	        		user = User.new(user_id:uid)
 	        		user.save

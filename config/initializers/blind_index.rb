@@ -1,0 +1,1 @@
+BlindIndex.master_key = Rails.application.credentials.blind_index_master_key
