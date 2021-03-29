@@ -61,38 +61,39 @@ class WebhookController < ApplicationController
 	        	when "応募する！"
 
 	        		uid = event['source']['userId']  #userId取得
-	        		user = User.where(user_id:uid)
+	        		User.where(user_id:uid).each do |user|
 
-	        		if user == nil
+		        		if user == nil
 
-	        		user = User.new(user_id:uid)
-	        		user.save
+		        		new_user = User.new(user_id:uid)
+		        		new_user.save
 
-	        		message = {
-			          type: 'text',
-			          text: "ありがとう！"
-			        }
-			        client.reply_message(event['replyToken'], message)
-
-
-			    	elsif user.campaign_flag == false
-			    	
-			    	user.update(campaign_flag: true)
-			    	message = {
-			          type: 'text',
-			          text: "ありがとう！！"
-			        }
-			        client.reply_message(event['replyToken'], message)
+		        		message = {
+				          type: 'text',
+				          text: "ありがとう！"
+				        }
+				        client.reply_message(event['replyToken'], message)
 
 
-			    	else
-			    	message = {
-			          type: 'text',
-			          text: "既に応募済です。"
-			        }
-			        client.reply_message(event['replyToken'], message)
+				    	elsif user.campaign_flag == false
+				    	
+				    	User.where(user_id:uid).update(campaign_flag: true)
+				    	message = {
+				          type: 'text',
+				          text: "ありがとう！！"
+				        }
+				        client.reply_message(event['replyToken'], message)
 
-			        end
+
+				    	else
+				    	message = {
+				          type: 'text',
+				          text: "既に応募済です。"
+				        }
+				        client.reply_message(event['replyToken'], message)
+
+				        end
+			    	end
 
 
 	        	when "応募しない"
