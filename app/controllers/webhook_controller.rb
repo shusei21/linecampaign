@@ -65,7 +65,7 @@ class WebhookController < ApplicationController
 
 		        		if user == nil
 
-		        		new_user = User.new(user_id:uid)
+		        		new_user = User.new(user_id: uid, campaign_flag: true)
 		        		new_user.save
 
 		        		message = {
