@@ -61,10 +61,10 @@ class WebhookController < ApplicationController
 	        	when "応募する！"
 
 	        		uid = event['source']['userId']  #userId取得
-	        		@user = User.find_by(user_id:uid)
+	        		user = User.find_by(user_id:uid)
 	        		#User.where(user_id:uid).each do |user|
 
-		        		if @user.nil?
+		        		if user.nil?
 
 		        		#new_user = User.new(user_id: uid, campaign_flag: true)
 		        		#new_user.save
@@ -76,7 +76,7 @@ class WebhookController < ApplicationController
 				        client.reply_message(event['replyToken'], message)
 
 
-				    	elsif @user.campaign_flag == false
+				    	elsif user.campaign_flag == false
 				    	
 				    	#User.where(user_id:uid).update(campaign_flag: true)
 				    	message = {
@@ -94,7 +94,7 @@ class WebhookController < ApplicationController
 				        client.reply_message(event['replyToken'], message)
 
 				        end
-			    	end
+			    	
 
 
 	        	when "応募しない"
