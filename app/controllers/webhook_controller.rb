@@ -66,7 +66,7 @@ class WebhookController < ApplicationController
 		        		if user == nil
 
 		        		new_user = User.new(user_id: uid, campaign_flag: true)
-		        		new_user.save
+		        		new_user.save!
 
 		        		message = {
 				          type: 'text',
@@ -77,7 +77,7 @@ class WebhookController < ApplicationController
 
 				    	elsif user.campaign_flag == false
 				    	
-				    	User.where(user_id:uid).update(campaign_flag: true)
+				    	User.where(user_id:uid).update!(campaign_flag: true)
 				    	message = {
 				          type: 'text',
 				          text: "ありがとう！！"
