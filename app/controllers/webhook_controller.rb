@@ -61,7 +61,7 @@ class WebhookController < ApplicationController
 	        	when "応募する！"
 
 	        		uid = event['source']['userId']  #userId取得
-	        		user = User.find_by(user_id:uid)
+	        		user = User.where(user_id:uid)
 	        		#User.where(user_id:uid).each do |user|
 
 		        		if user.nil?
