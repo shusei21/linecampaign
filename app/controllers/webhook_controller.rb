@@ -63,7 +63,7 @@ class WebhookController < ApplicationController
 	        		uid = event['source']['userId']  #userId取得
 	        		User.where(user_id:uid).each do |user|
 
-		        		if user == nil
+		        		if user.nil?
 
 		        		new_user = User.new(user_id: uid, campaign_flag: true)
 		        		new_user.save!
