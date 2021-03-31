@@ -76,7 +76,7 @@ class WebhookController < ApplicationController
 				        client.reply_message(event['replyToken'], message)
 
 
-				    	elsif User.where(user_id: uid).where(campaign_flag: true).nil?
+				    	elsif User.where(user_id: uid).where(campaign_flag: true).blank?
 				    	
 				    	User.where(user_id:uid).update(campaign_flag: true)
 				    	message = {
