@@ -78,10 +78,10 @@ class WebhookController < ApplicationController
 
 				    	elsif user.campaign_flag == false
 				    	
-				    	#User.where(user_id:uid).update(campaign_flag: true)
+				    	User.where(user_id:uid).update(campaign_flag: true)
 				    	message = {
 				          type: 'text',
-				          text: "ありがとう！！"
+				          text: "キャンペーンに参加しました"
 				        }
 				        client.reply_message(event['replyToken'], message)
 
