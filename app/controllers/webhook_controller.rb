@@ -12,6 +12,37 @@ class WebhookController < ApplicationController
 
 
     def recieve
+		client = Line::Bot::Client.new{ |config|
+			config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+			config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+		}
+
+		rich_menu = {
+		  "size": {
+		    "width": 2500,
+		    "height": 1686
+		  },
+		  "selected": false,
+		  "name": "Nice richmenu",
+		  "chatBarText": "Tap to open",
+		  "areas": [
+		    {
+		      "bounds": {
+		        "x": 2500,
+		        "y": 1686,
+		        "width": 2500,
+		        "height": 1686
+		      },
+		      "action": {
+		        "type": "postback",
+		        "data": "action=buy&itemid=123"
+		      }
+		    }
+		  ]
+		}
+		client.create_rich_menu(rich_menu)
+
+
   		body = request.body.read
 
 	  	signature = request.env['HTTP_X_LINE_SIGNATURE']
@@ -66,7 +97,7 @@ class WebhookController < ApplicationController
 
 		        		if user.nil?
 
-		        		new_user = User.new(user_id: uid, campaign_flag: false)
+		        		new_user = User.new(user_id: uid, campaign_flag: true)
 		        		new_user.save
 
 		        		message = {
