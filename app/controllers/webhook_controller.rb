@@ -12,6 +12,14 @@ class WebhookController < ApplicationController
 
 
     def recieve
+  		body = request.body.read
+
+	  	signature = request.env['HTTP_X_LINE_SIGNATURE']
+	    unless client.validate_signature(body, signature)
+	    head :bad_request
+	    end
+
+
 		client = Line::Bot::Client.new{ |config|
 			config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
 			config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
@@ -43,15 +51,7 @@ class WebhookController < ApplicationController
 		client.create_rich_menu(rich_menu)
 
 
-  		body = request.body.read
-
-	  	signature = request.env['HTTP_X_LINE_SIGNATURE']
-	    unless client.validate_signature(body, signature)
-	    head :bad_request
-	    end
-
   		events = client.parse_events_from(body)
-  		
   		events.each do |event|
     	
     		case event
@@ -97,32 +97,32 @@ class WebhookController < ApplicationController
 
 		        		if user.nil?
 
-		        		new_user = User.new(user_id: uid, campaign_flag: true)
-		        		new_user.save
+			        		new_user = User.new(user_id: uid, campaign_flag: true)
+			        		new_user.save
 
-		        		message = {
-				          type: 'text',
-				          text: "ありがとう！"
-				        }
-				        client.reply_message(event['replyToken'], message)
+			        		message = {
+					          type: 'text',
+					          text: "ありがとう！"
+					        }
+					        client.reply_message(event['replyToken'], message)
 
 
 				    	elsif User.where(user_id: uid).where(campaign_flag: true).blank?
 				    	
-				    	User.where(user_id:uid).update(campaign_flag: true)
-				    	message = {
-				          type: 'text',
-				          text: "キャンペーンに参加しました"
-				        }
-				        client.reply_message(event['replyToken'], message)
+					    	User.where(user_id:uid).update(campaign_flag: true)
+					    	message = {
+					          type: 'text',
+					          text: "キャンペーンに参加しました"
+					        }
+					        client.reply_message(event['replyToken'], message)
 
 
 				    	else
-				    	message = {
-				          type: 'text',
-				          text: "既に応募済です。"
-				        }
-				        client.reply_message(event['replyToken'], message)
+					    	message = {
+					          type: 'text',
+					          text: "既に応募済です。"
+					        }
+					        client.reply_message(event['replyToken'], message)
 
 				        end
 			    	

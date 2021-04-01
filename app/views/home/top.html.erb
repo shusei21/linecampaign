@@ -1,2 +1,26 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<h1>ユーザー一覧</h1>
+<p>CSVダウンロード</p>
+
+<table>
+	<thead>
+	<tr>
+		<th>ユーザーID</th>
+		<th>キャンペーン参加</th>
+	</tr>
+	</thead>
+
+<% @user.each do |user| %>
+
+	<tr>
+		<td><%= user.user_id %></td>
+		<td><% if user.campaign_flag == true %>
+			<%= "有" %>
+			<% else %>
+			<%= "無" %>
+			<% end %>			
+		</td>
+	</tr>
+
+<% end %>
+
+</table>
