@@ -26,7 +26,4 @@ class HomeController < ApplicationController
     send_data(csv_data, filename: "users.csv")
   end
 
-  end
-
-
 end
