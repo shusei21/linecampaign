@@ -66,3 +66,5 @@ gem 'line-bot-api'
 gem "attr_encrypted"
 
 gem "blind_index"
+
+gem 'devise'
