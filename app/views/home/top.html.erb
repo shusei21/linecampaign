@@ -1,5 +1,5 @@
 <h1>ユーザー一覧</h1>
-<p>CSVダウンロード</p>
+<%= link_to "csvで出力する",posts_path(format: :csv) %>
 
 <table>
 	<thead>
@@ -12,7 +12,7 @@
 	</tr>
 	</thead>
 
-<% @user.each do |user| %>
+<% @users.each do |user| %>
 
 	<tr>
 		<td><%= user.id %></td>
