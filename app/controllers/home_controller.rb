@@ -2,12 +2,16 @@ require 'csv'
 
 class HomeController < ApplicationController
   def top
+    @users = User.all
+  end
+
+  def index
   	@users = User.all
 
     respond_to do |format|
       format.html
       format.csv do |csv|
-        send_posts_csv(@posts)
+        send_users_csv(@users)
       end
     end
   end
