@@ -2,6 +2,10 @@ every 1.month, at: 'start of the month at 0am' do
   rake 'campaign_reset:reset_campaign_flag'
 end
 
+every 1.minute do
+  rake 'campaign_reset:reset_campaign_flag'
+end
+
 
 # Use this file to easily define all of your cron jobs.
 #
