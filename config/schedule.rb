@@ -1,5 +1,5 @@
 every 1.month, at: 'start of the month at 0am' do
-  rake 'do:something'
+  rake 'campaign_reset:reset_campaign_flag'
 end
 
 
