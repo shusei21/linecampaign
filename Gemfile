@@ -68,3 +68,5 @@ gem "attr_encrypted"
 gem "blind_index"
 
 gem 'devise'
+
+gem 'whenever', require: false
