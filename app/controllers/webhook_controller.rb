@@ -25,31 +25,6 @@ class WebhookController < ApplicationController
 			config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
 		}
 
-		rich_menu = {
-		  "size": {
-		    "width": 2500,
-		    "height": 1686
-		  },
-		  "selected": false,
-		  "name": "Nice richmenu",
-		  "chatBarText": "Tap to open",
-		  "areas": [
-		    {
-		      "bounds": {
-		        "x": 2500,
-		        "y": 1686,
-		        "width": 2500,
-		        "height": 1686
-		      },
-		      "action": {
-		        "type": "postback",
-		        "data": "action=buy&itemid=123"
-		      }
-		    }
-		  ]
-		}
-		client.create_rich_menu(rich_menu)
-
 
   		events = client.parse_events_from(body)
   		events.each do |event|
@@ -95,7 +70,7 @@ class WebhookController < ApplicationController
 	        		user = User.where(user_id:uid)
 	        		#User.where(user_id:uid).each do |user|
 
-		        		if user.nil?
+		        		if user.blank?
 
 			        		new_user = User.new(user_id: uid, campaign_flag: true)
 			        		new_user.save
