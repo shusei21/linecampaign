@@ -31,4 +31,10 @@ class HomeController < ApplicationController
     send_data(csv_data, filename: "users.csv")
   end
 
+  def reset_campaign
+  	User.update_all(campaign_flag: false)
+
+  	redirect_to root_path
+  end
+
 end
