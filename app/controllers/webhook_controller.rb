@@ -77,7 +77,19 @@ class WebhookController < ApplicationController
 
 			        		message = {
 					          type: 'text',
-					          text: "ありがとう！"
+					          text: "$ご応募ありがとうございました$"
+					          emojis: [
+							      {
+							        "index": 0,
+							        "productId": "5ac1bfd5040ab15980c9b435",
+							        "emojiId": "001"
+							      },
+							      {
+							        "index": 14,
+							        "productId": "5ac1bfd5040ab15980c9b435",
+							        "emojiId": "002"
+							      }
+							  ]
 					        }
 					        client.reply_message(event['replyToken'], message)
 
