@@ -107,7 +107,20 @@ class WebhookController < ApplicationController
 				    	else
 					    	message = {
 					          type: 'text',
-					          text: "既に応募済です。"
+					          text: "$既に応募済です。$",
+					          emojis: [
+							      {
+							        "index": 0,
+							        "productId": "5ac1bfd5040ab15980c9b435",
+							        "emojiId": "001"
+							      },
+							      {
+							        "index": 9,
+							        "productId": "5ac1bfd5040ab15980c9b435",
+							        "emojiId": "002"
+							      }
+							  ]
+					        }
 					        }
 					        client.reply_message(event['replyToken'], message)
 
