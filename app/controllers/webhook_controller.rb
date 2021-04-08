@@ -77,7 +77,7 @@ class WebhookController < ApplicationController
 
 			        		message = {
 					          type: 'text',
-					          text: "$ご応募ありがとうございました$"
+					          text: "$ご応募ありがとうございました$",
 					          emojis: [
 							      {
 							        "index": 0,
