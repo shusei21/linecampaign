@@ -119,8 +119,7 @@ class WebhookController < ApplicationController
 							        "productId": "5ac1bfd5040ab15980c9b435",
 							        "emojiId": "002"
 							      }
-							  ]
-					        }
+							  ]					        
 					        }
 					        client.reply_message(event['replyToken'], message)
 
