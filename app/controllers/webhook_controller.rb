@@ -185,11 +185,13 @@ class WebhookController < ApplicationController
 	        		message = {
 			          type: 'text',
 			          text: "ご不明な点がございましたか？\n\nお問い合わせは下記URLから$\nhttps://ask.step.rakuten.co.jp/inquiry-form/index.phtml?shop_id=253896&act=input&ms=500&fidmmy=1",
-			          emojis: {
+			          emojis: [
+			          		  {
 							    "index": 13,
 							    "productId": "5ac1bfd5040ab15980c9b435",
 							    "emojiId": "009"
 							  }
+					  ]
 			        }
 			        client.reply_message(event['replyToken'], message)
 
