@@ -82,22 +82,22 @@ class WebhookController < ApplicationController
 							      {
 							        "index": 14,
 							        "productId": "5ac1bfd5040ab15980c9b435",
+							        "emojiId": "009"
+							      },
+							      {
+							        "index": 60,
+							        "productId": "5ac21a18040ab15980c9b43e",
+							        "emojiId": "107"
+							      },
+							      {
+							        "index": 102,
+							        "productId": "5ac1bfd5040ab15980c9b435",
+							        "emojiId": "042"
+							      },
+							      {
+							        "index": 119,
+							        "productId": "5ac1bfd5040ab15980c9b435",
 							        "emojiId": "001"
-							      },
-							      {
-							        "index": 59,
-							        "productId": "5ac1bfd5040ab15980c9b435",
-							        "emojiId": "002"
-							      },
-							      {
-							        "index": 100,
-							        "productId": "5ac1bfd5040ab15980c9b435",
-							        "emojiId": "002"
-							      },
-							      {
-							        "index": 115,
-							        "productId": "5ac1bfd5040ab15980c9b435",
-							        "emojiId": "002"
 							      }
 							  ]
 					        }
@@ -114,22 +114,22 @@ class WebhookController < ApplicationController
 							      {
 							        "index": 14,
 							        "productId": "5ac1bfd5040ab15980c9b435",
+							        "emojiId": "009"
+							      },
+							      {
+							        "index": 60,
+							        "productId": "5ac21a18040ab15980c9b43e",
+							        "emojiId": "107"
+							      },
+							      {
+							        "index": 102,
+							        "productId": "5ac1bfd5040ab15980c9b435",
+							        "emojiId": "042"
+							      },
+							      {
+							        "index": 119,
+							        "productId": "5ac1bfd5040ab15980c9b435",
 							        "emojiId": "001"
-							      },
-							      {
-							        "index": 59,
-							        "productId": "5ac1bfd5040ab15980c9b435",
-							        "emojiId": "002"
-							      },
-							      {
-							        "index": 100,
-							        "productId": "5ac1bfd5040ab15980c9b435",
-							        "emojiId": "002"
-							      },
-							      {
-							        "index": 115,
-							        "productId": "5ac1bfd5040ab15980c9b435",
-							        "emojiId": "002"
 							      }
 							  ]
 					        }
@@ -144,7 +144,7 @@ class WebhookController < ApplicationController
 							      {
 							        "index": 13,
 							        "productId": "5ac1bfd5040ab15980c9b435",
-							        "emojiId": "001"
+							        "emojiId": "009"
 							      },
 							      {
 							        "index": 26,
