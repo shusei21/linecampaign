@@ -35,33 +35,35 @@ class WebhookController < ApplicationController
         	  when Line::Bot::Event::MessageType::Text
         	  	case event.message['text'] 
         	  	when "プレゼントキャンペーン"
-        	  		message = {
+        	  		message = [
+        	  				{
 					          type: 'text',
 					          text: "キャンペーン内容、応募規約をご確認ください。\n→https://bit.ly/3dHwivC",
 					          
-					        }
-        	  		message = {
-					  "type": "template",
-					  "altText": "キャンペーン応募確認",
-					  "template": {
-					      "type": "confirm",
-					      "text": "応募しますか？",
-					      "actions": [
-					          {
-					            "type": "postback",
-					            "label": "応募する！",
-					            "displayText": "応募する！",
-					            "data": "応募する！",
-					          },
-					          {
-					            "type": "postback",
-					            "label": "応募しない",
-					            "displayText": "応募しない",
-					            "data": "応募しない",
-					          }
-					      ]
-					  }
-					}
+					        },
+					        {
+							  "type": "template",
+							  "altText": "キャンペーン応募確認",
+							  "template": {
+							      "type": "confirm",
+							      "text": "応募しますか？",
+							      "actions": [
+							          {
+							            "type": "postback",
+							            "label": "応募する！",
+							            "displayText": "応募する！",
+							            "data": "応募する！",
+							          },
+							          {
+							            "type": "postback",
+							            "label": "応募しない",
+							            "displayText": "応募しない",
+							            "data": "応募しない",
+							          }
+							      ]
+							  }
+							}
+					]
             		client.reply_message(event['replyToken'], message)
 
             	end
