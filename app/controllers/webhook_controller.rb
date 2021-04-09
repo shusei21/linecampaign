@@ -139,7 +139,7 @@ class WebhookController < ApplicationController
 				    	else
 					    	message = {
 					          type: 'text',
-					          text: "ご応募ありがとうございます$\n今月はすでにご応募済です$",
+					          text: "ご応募ありがとうございます$今月はすでにご応募済です$\n当選者には、翌月中旬ごろにBeGarden公式アカウントより当選メッセージをお送りします$\n※「ブロック」すると、当選メッセージを受け取ることができませんのでご注意ください$\n\n来月も応募をお待ちしています$",
 					          emojis: [
 							      {
 							        "index": 13,
@@ -147,7 +147,22 @@ class WebhookController < ApplicationController
 							        "emojiId": "001"
 							      },
 							      {
-							        "index": 27,
+							        "index": 26,
+							        "productId": "5ac21a18040ab15980c9b43e",
+							        "emojiId": "028"
+							      },
+							      {
+							        "index": 72,
+							        "productId": "5ac21a18040ab15980c9b43e",
+							        "emojiId": "107"
+							      },
+							      {
+							        "index": 114,
+							        "productId": "5ac1bfd5040ab15980c9b435",
+							        "emojiId": "042"
+							      },
+							      {
+							        "index": 131,
 							        "productId": "5ac1bfd5040ab15980c9b435",
 							        "emojiId": "001"
 							      }
