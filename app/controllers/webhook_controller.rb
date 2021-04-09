@@ -147,7 +147,7 @@ class WebhookController < ApplicationController
 							        "emojiId": "001"
 							      },
 							      {
-							        "index": 26,
+							        "index": 27,
 							        "productId": "5ac1bfd5040ab15980c9b435",
 							        "emojiId": "001"
 							      }
