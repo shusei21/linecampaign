@@ -139,7 +139,7 @@ class WebhookController < ApplicationController
 				    	else
 					    	message = {
 					          type: 'text',
-					          text: "ご応募ありがとうございます$今月はすでにご応募済です$",
+					          text: "ご応募ありがとうございます$\n今月はすでにご応募済です$",
 					          emojis: [
 							      {
 							        "index": 13,
