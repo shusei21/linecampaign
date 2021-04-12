@@ -71,7 +71,7 @@ class WebhookController < ApplicationController
             		message = [
         	  				{
 					          type: 'text',
-					          text: "あなたが興味のあるカテゴリを教えて下さい！\n設問は複数ございます。",
+					          text: "あなたが興味のあるカテゴリを教えて下さい！！\n設問は複数ございます。",
 					          
 					        },
 					        {
