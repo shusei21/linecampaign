@@ -66,6 +66,39 @@ class WebhookController < ApplicationController
 					]
             		client.reply_message(event['replyToken'], message)
 
+
+            	when "アンケート"
+            		message = [
+        	  				{
+					          type: 'text',
+					          text: "あなたが興味のあるカテゴリを教えて下さい！\n設問は複数ございます。",
+					          
+					        },
+					        {
+							  "type": "template",
+							  "altText": "ヘアケア",
+							  "template": {
+							      "type": "confirm",
+							      "text": "「ヘアケア」に興味はありますか？",
+							      "actions": [
+							          {
+							            "type": "postback",
+							            "label": "興味あり！",
+							            "displayText": "興味あり！",
+							            "data": "ヘアケア興味あり",
+							          },
+							          {
+							            "type": "postback",
+							            "label": "興味なし",
+							            "displayText": "興味なし",
+							            "data": "ヘアケア興味なし",
+							          }
+							      ]
+							  }
+							}
+					]
+            		client.reply_message(event['replyToken'], message)
+
             	end
               end
 
