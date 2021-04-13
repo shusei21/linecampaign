@@ -22,13 +22,13 @@
 		<th></th>
 		<th></th>
 		<th><%= @users.count %></th>
-		<th><%= @campaign_users.count %> 【<%= @campaign_par_rate %>%】</th>
-		<th><%= @haircare_users.count %> 【<%= @haircare_rate %>%】</th>
-		<th><%= @skincare_users.count %> 【<%= @skincare_rate %>%】</th>
-		<th><%= @bodycare_users.count %> 【<%= @bodycare_rate %>%】</th>
-		<th><%= @healthfood_users.count %> 【<%= @healthfood_rate %>%】</th>
-		<th><%= @perfume_users.count %> 【<%= @perfume_rate %>%】</th>
-		<th><%= @alcohol_users.count %> 【<%= @alcohol_rate %>%】</th>
+		<th><%= @campaign_users.count %> 【<%= @campaign_par_rate.round(1) %>%】</th>
+		<th><%= @haircare_users.count %> 【<%= @haircare_rate.round(1) %>%】</th>
+		<th><%= @skincare_users.count %> 【<%= @skincare_rate.round(1) %>%】</th>
+		<th><%= @bodycare_users.count %> 【<%= @bodycare_rate.round(1) %>%】</th>
+		<th><%= @healthfood_users.count %> 【<%= @healthfood_rate.round(1) %>%】</th>
+		<th><%= @perfume_users.count %> 【<%= @perfume_rate.round(1) %>%】</th>
+		<th><%= @alcohol_users.count %> 【<%= @alcohol_rate.round(1) %>%】</th>
 	</tr>
 	</thead>
 
