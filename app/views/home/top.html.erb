@@ -2,20 +2,7 @@
 <%= link_to "csvで出力する",index_path(format: :csv) %>
 <%= link_to "キャンペーン参加をリセット",reset_campaign_path,method: :post,data: {confirm: 'キャンペーン参加状況をリセットします。よろしいですか？'}  %>
 
-<table>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td><%= @users.count %></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
+<table class="user_table">
 	<thead>
 	<tr>
 		<th>ID</th>
@@ -23,12 +10,25 @@
 		<th>更新日時</th>
 		<th>ユーザーID</th>
 		<th>キャンペーン参加</th>
-		<th>ヘアケア</th>
-		<th>スキンケア</th>
-		<th>ボディケア</th>
-		<th>健康食品</th>
-		<th>香水・アロマ</th>
-		<th>アルコール</th>
+		<th style="width: 130px;">ヘアケア</th>
+		<th style="width: 130px;">スキンケア</th>
+		<th style="width: 130px;">ボディケア</th>
+		<th style="width: 130px;">健康食品</th>
+		<th style="width: 130px;">香水・アロマ</th>
+		<th style="width: 130px;">アルコール</th>
+	</tr>
+	<tr>
+		<th>全体</th>
+		<th></th>
+		<th></th>
+		<th><%= @users.count %></th>
+		<th><%= @campaign_users.count %> 【<%= @campaign_users.count / @users.count * 100 %> %】</th>
+		<th><%= @haircare_users.count %> 【<%= @haircare_users.count / @users.count * 100 %> %】</th>
+		<th><%= @skincare_users.count %> 【<%= @skincare_users.count / @users.count * 100 %> %】</th>
+		<th><%= @bodycare_users.count %> 【<%= @bodycare_users.count / @users.count * 100 %> %】</th>
+		<th><%= @healthfood_users.count %> 【<%= @healthfood_users.count / @users.count * 100 %> %】</th>
+		<th><%= @perfume_users.count %> 【<%= @perfume_users.count / @users.count * 100 %> %】</th>
+		<th><%= @alcohol_users.count %> 【<%= @alcohol_users.count / @users.count * 100 %> %】</th>
 	</tr>
 	</thead>
 

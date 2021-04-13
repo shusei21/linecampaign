@@ -1,3 +1,19 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user_table {
+	text-align: center;
+	border-collapse: collapse;
+	border: solid 2px;
+}
+
+.user_table th {
+	padding: 5px;
+	color: white;
+	background: #191970;
+}
+
+.user_table td {
+	border: solid 1px;
+	padding: 3px;
+}

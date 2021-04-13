@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_072047) do
+ActiveRecord::Schema.define(version: 2021_04_13_030209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,12 @@ ActiveRecord::Schema.define(version: 2021_04_01_072047) do
     t.string "encrypted_user_id"
     t.string "encrypted_user_id_iv"
     t.string "user_id_bidx"
+    t.boolean "haircare_flag", default: false, null: false
+    t.boolean "skincare_flag", default: false, null: false
+    t.boolean "bodycare_flag", default: false, null: false
+    t.boolean "healthfood_flag", default: false, null: false
+    t.boolean "perfume_flag", default: false, null: false
+    t.boolean "alcohol_flag", default: false, null: false
     t.index ["user_id_bidx"], name: "index_users_on_user_id_bidx", unique: true
   end
 

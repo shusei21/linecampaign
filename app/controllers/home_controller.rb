@@ -4,6 +4,13 @@ class HomeController < ApplicationController
   before_action :authenticate_admin!
   def top
     @users = User.all
+    @campaign_users = User.where(campaign_flag: true)
+    @haircare_users = User.where(haircare_flag: true)
+    @skincare_users = User.where(skincare_flag: true)
+    @bodycare_users = User.where(bodycare_flag: true)
+    @healthfood_users = User.where(healthfood_flag: true)
+    @perfume_users = User.where(perfume_flag: true)
+    @alcohol_users = User.where(alcohol_flag: true)
   end
 
   def index
