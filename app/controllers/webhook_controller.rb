@@ -28,6 +28,8 @@ class WebhookController < ApplicationController
 
   		events = client.parse_events_from(body)
   		events.each do |event|
+
+  			uid = event['source']['userId']  #userId取得
     	
     		case event
         	when Line::Bot::Event::Message
@@ -117,7 +119,7 @@ class WebhookController < ApplicationController
 	        	case event['postback']['data']
 	        	when "応募する！"
 
-	        		uid = event['source']['userId']  #userId取得
+	        		
 	        		user = User.where(user_id:uid)
 	        		#User.where(user_id:uid).each do |user|
 
