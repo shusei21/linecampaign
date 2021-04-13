@@ -68,11 +68,23 @@ class WebhookController < ApplicationController
 
 
             	when "アンケート"
+            		user = User.where(user_id:uid)
+            		if user.blank?
+			        		new_user = User.new(user_id: uid)
+			        		new_user.save
+			        end
+
             		message = [
         	  				{
 					          type: 'text',
-					          text: "あなたが興味のあるカテゴリを教えて下さい！！\n設問は複数ございます。",
-					          
+					          text: "あなたが興味のあるカテゴリを教えて下さい！$\n好みに合った情報が届く様になります♪\nまた、このアンケートは何度でも回答可能です。\n\n質問は６問ございます。",
+					          emojis: [
+					              {
+							        "index": 21,
+							        "productId": "5ac1bfd5040ab15980c9b435",
+							        "emojiId": "009"
+							      }
+							  ]
 					        },
 					        {
 							  "type": "template",
@@ -98,7 +110,6 @@ class WebhookController < ApplicationController
 							}
 					]
             		client.reply_message(event['replyToken'], message)
-
             	end
               end
 
@@ -227,6 +238,306 @@ class WebhookController < ApplicationController
 					  ]
 			        }
 			        client.reply_message(event['replyToken'], message)
+
+			    when "ヘアケア興味あり"
+			    	User.where(user_id:uid).update(haircare_flag: true)
+			    	message = {
+							  "type": "template",
+							  "altText": "スキンケア",
+							  "template": {
+							      "type": "confirm",
+							      "text": "「スキンケア」に興味はありますか？",
+							      "actions": [
+							          {
+							            "type": "postback",
+							            "label": "興味あり！",
+							            "displayText": "興味あり！",
+							            "data": "スキンケア興味あり",
+							          },
+							          {
+							            "type": "postback",
+							            "label": "興味なし",
+							            "displayText": "興味なし",
+							            "data": "スキンケア興味なし",
+							          }
+							      ]
+							  }
+					}
+					client.reply_message(event['replyToken'], message)
+
+				when "ヘアケア興味なし"
+			    	User.where(user_id:uid).update(haircare_flag: false)
+			    	message = {
+							  "type": "template",
+							  "altText": "スキンケア",
+							  "template": {
+							      "type": "confirm",
+							      "text": "「スキンケア」に興味はありますか？",
+							      "actions": [
+							          {
+							            "type": "postback",
+							            "label": "興味あり！",
+							            "displayText": "興味あり！",
+							            "data": "スキンケア興味あり",
+							          },
+							          {
+							            "type": "postback",
+							            "label": "興味なし",
+							            "displayText": "興味なし",
+							            "data": "スキンケア興味なし",
+							          }
+							      ]
+							  }
+					}
+					client.reply_message(event['replyToken'], message)
+
+				when "スキンケア興味あり"
+			    	User.where(user_id:uid).update(skincare_flag: true)
+			    	message = {
+							  "type": "template",
+							  "altText": "ボディケア",
+							  "template": {
+							      "type": "confirm",
+							      "text": "「ボディケア」に興味はありますか？",
+							      "actions": [
+							          {
+							            "type": "postback",
+							            "label": "興味あり！",
+							            "displayText": "興味あり！",
+							            "data": "ボディケア興味あり",
+							          },
+							          {
+							            "type": "postback",
+							            "label": "興味なし",
+							            "displayText": "興味なし",
+							            "data": "ボディケア興味なし",
+							          }
+							      ]
+							  }
+					}
+					client.reply_message(event['replyToken'], message)
+
+				when "スキンケア興味なし"
+			    	User.where(user_id:uid).update(skincare_flag: false)
+			    	message = {
+							  "type": "template",
+							  "altText": "ボディケア",
+							  "template": {
+							      "type": "confirm",
+							      "text": "「ボディケア」に興味はありますか？",
+							      "actions": [
+							          {
+							            "type": "postback",
+							            "label": "興味あり！",
+							            "displayText": "興味あり！",
+							            "data": "ボディケア興味あり",
+							          },
+							          {
+							            "type": "postback",
+							            "label": "興味なし",
+							            "displayText": "興味なし",
+							            "data": "ボディケア興味なし",
+							          }
+							      ]
+							  }
+					}
+					client.reply_message(event['replyToken'], message)
+
+				when "ボディケア興味あり"
+			    	User.where(user_id:uid).update(bodycare_flag: true)
+			    	message = {
+							  "type": "template",
+							  "altText": "健康食品",
+							  "template": {
+							      "type": "confirm",
+							      "text": "「健康食品」に興味はありますか？",
+							      "actions": [
+							          {
+							            "type": "postback",
+							            "label": "興味あり！",
+							            "displayText": "興味あり！",
+							            "data": "健康食品興味あり",
+							          },
+							          {
+							            "type": "postback",
+							            "label": "興味なし",
+							            "displayText": "興味なし",
+							            "data": "健康食品興味なし",
+							          }
+							      ]
+							  }
+					}
+					client.reply_message(event['replyToken'], message)
+
+				when "ボディケア興味なし"
+			    	User.where(user_id:uid).update(bodycare_flag: false)
+			    	message = {
+							  "type": "template",
+							  "altText": "健康食品",
+							  "template": {
+							      "type": "confirm",
+							      "text": "「健康食品」に興味はありますか？",
+							      "actions": [
+							          {
+							            "type": "postback",
+							            "label": "興味あり！",
+							            "displayText": "興味あり！",
+							            "data": "健康食品興味あり",
+							          },
+							          {
+							            "type": "postback",
+							            "label": "興味なし",
+							            "displayText": "興味なし",
+							            "data": "健康食品興味なし",
+							          }
+							      ]
+							  }
+					}
+					client.reply_message(event['replyToken'], message)
+
+				when "健康食品興味あり"
+			    	User.where(user_id:uid).update(healthfood_flag: true)
+			    	message = {
+							  "type": "template",
+							  "altText": "香水・アロマ",
+							  "template": {
+							      "type": "confirm",
+							      "text": "「香水・アロマ」に興味はありますか？",
+							      "actions": [
+							          {
+							            "type": "postback",
+							            "label": "興味あり！",
+							            "displayText": "興味あり！",
+							            "data": "香水興味あり",
+							          },
+							          {
+							            "type": "postback",
+							            "label": "興味なし",
+							            "displayText": "興味なし",
+							            "data": "香水興味なし",
+							          }
+							      ]
+							  }
+					}
+					client.reply_message(event['replyToken'], message)
+
+				when "健康食品興味なし"
+			    	User.where(user_id:uid).update(healthfood_flag: false)
+			    	message = {
+							  "type": "template",
+							  "altText": "香水・アロマ",
+							  "template": {
+							      "type": "confirm",
+							      "text": "「香水・アロマ」に興味はありますか？",
+							      "actions": [
+							          {
+							            "type": "postback",
+							            "label": "興味あり！",
+							            "displayText": "興味あり！",
+							            "data": "香水興味あり",
+							          },
+							          {
+							            "type": "postback",
+							            "label": "興味なし",
+							            "displayText": "興味なし",
+							            "data": "香水興味なし",
+							          }
+							      ]
+							  }
+					}
+					client.reply_message(event['replyToken'], message)
+
+				when "香水興味あり"
+			    	User.where(user_id:uid).update(perfume_flag: true)
+			    	message = {
+							  "type": "template",
+							  "altText": "アルコール",
+							  "template": {
+							      "type": "confirm",
+							      "text": "「除菌アルコール」に興味はありますか？",
+							      "actions": [
+							          {
+							            "type": "postback",
+							            "label": "興味あり！",
+							            "displayText": "興味あり！",
+							            "data": "アルコール興味あり",
+							          },
+							          {
+							            "type": "postback",
+							            "label": "興味なし",
+							            "displayText": "興味なし",
+							            "data": "アルコール興味なし",
+							          }
+							      ]
+							  }
+					}
+					client.reply_message(event['replyToken'], message)
+
+				when "香水興味なし"
+			    	User.where(user_id:uid).update(perfume_flag: false)
+			    	message = {
+							  "type": "template",
+							  "altText": "アルコール",
+							  "template": {
+							      "type": "confirm",
+							      "text": "「除菌アルコール」に興味はありますか？",
+							      "actions": [
+							          {
+							            "type": "postback",
+							            "label": "興味あり！",
+							            "displayText": "興味あり！",
+							            "data": "アルコール興味あり",
+							          },
+							          {
+							            "type": "postback",
+							            "label": "興味なし",
+							            "displayText": "興味なし",
+							            "data": "アルコール興味なし",
+							          }
+							      ]
+							  }
+					}
+					client.reply_message(event['replyToken'], message)
+
+				when "アルコール興味あり"
+			    	User.where(user_id:uid).update(alcohol_flag: true)
+			    	message = {
+							  type: "text",
+							  text: "質問は以上です。\nご回答ありがとうございました$\n今後の配信をお楽しみに$",
+					          emojis: [
+							      {
+							        "index": 23,
+							        "productId": "5ac1bfd5040ab15980c9b435",
+							        "emojiId": "009"
+							      },
+							      {
+							        "index": 36,
+							        "productId": "5ac21a18040ab15980c9b43e",
+							        "emojiId": "028"
+							      }
+							  ]
+					}
+					client.reply_message(event['replyToken'], message)
+
+				when "アルコール興味なし"
+			    	User.where(user_id:uid).update(alcohol_flag: false)
+			    	message = {
+							  type: "text",
+							  text: "質問は以上です。\nご回答ありがとうございました$\n今後の配信をお楽しみに$",
+					          emojis: [
+							      {
+							        "index": 23,
+							        "productId": "5ac1bfd5040ab15980c9b435",
+							        "emojiId": "009"
+							      },
+							      {
+							        "index": 36,
+							        "productId": "5ac21a18040ab15980c9b43e",
+							        "emojiId": "028"
+							      }
+							  ]
+					}
+					client.reply_message(event['replyToken'], message)
 
 	        	end
 	        end
