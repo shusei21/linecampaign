@@ -6,8 +6,8 @@
 	<thead>
 	<tr>
 		<th>ID</th>
-		<th>作成日時</th>
-		<th>更新日時</th>
+		<th width="130px">作成日時</th>
+		<th width="130px">更新日時</th>
 		<th>ユーザーID</th>
 		<th>キャンペーン参加</th>
 		<th>ヘアケア</th>
@@ -36,8 +36,8 @@
 
 	<tr>
 		<td><%= user.id %></td>
-		<td><%= user.created_at.to_s(:datetime_jp) %></td>
-		<td><%= user.updated_at.to_s(:datetime_jp) %></td>
+		<td style="font-size: 0.8rem"><%= user.created_at.to_s(:datetime_jp) %></td>
+		<td style="font-size: 0.8rem"><%= user.updated_at.to_s(:datetime_jp) %></td>
 		<td><%= user.user_id %></td>
 		<td><% if user.campaign_flag == true %>
 			<%= "有" %>
