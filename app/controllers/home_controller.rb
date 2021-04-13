@@ -5,12 +5,19 @@ class HomeController < ApplicationController
   def top
     @users = User.all
     @campaign_users = User.where(campaign_flag: true)
+    @campaign_par_rate = @campaign_users.count.to_f / @users.count.to_f * 100
     @haircare_users = User.where(haircare_flag: true)
+    @haircare_rate = @haircare_users.count.to_f / @users.count.to_f * 100
     @skincare_users = User.where(skincare_flag: true)
+    @skincare_rate = @skincare_users.count.to_f / @users.count.to_f * 100
     @bodycare_users = User.where(bodycare_flag: true)
+    @bodycare_rate = @bodycare_users.count.to_f / @users.count.to_f * 100
     @healthfood_users = User.where(healthfood_flag: true)
+    @healthfood_rate = @healthfood_users.count.to_f / @users.count.to_f * 100
     @perfume_users = User.where(perfume_flag: true)
+    @perfume_rate = @perfume_users.count.to_f / @users.count.to_f * 100
     @alcohol_users = User.where(alcohol_flag: true)
+    @alcohol_rate = @alcohol_users.count.to_f / @users.count.to_f * 100
   end
 
   def index
