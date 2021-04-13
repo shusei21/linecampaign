@@ -10,6 +10,12 @@
 		<th>更新日時</th>
 		<th>ユーザーID</th>
 		<th>キャンペーン参加</th>
+		<th>ヘアケア</th>
+		<th>スキンケア</th>
+		<th>ボディケア</th>
+		<th>健康食品</th>
+		<th>香水・アロマ</th>
+		<th>アルコール</th>
 	</tr>
 	</thead>
 
@@ -25,6 +31,48 @@
 			<% else %>
 			<%= "無" %>
 			<% end %>			
+		</td>
+		<td>
+			<% if user.haircare_flag == true %>
+			<%= "OK" %>
+			<% else %>
+			<%= "NG" %>
+			<% end %>
+		</td>
+		<td>
+			<% if user.skincare_flag == true %>
+			<%= "OK" %>
+			<% else %>
+			<%= "NG" %>
+			<% end %>
+		</td>
+		<td>
+			<% if user.bodycare_flag == true %>
+			<%= "OK" %>
+			<% else %>
+			<%= "NG" %>
+			<% end %>
+		</td>
+		<td>
+			<% if user.healthfood_flag == true %>
+			<%= "OK" %>
+			<% else %>
+			<%= "NG" %>
+			<% end %>
+		</td>
+		<td>
+			<% if user.perfume_flag == true %>
+			<%= "OK" %>
+			<% else %>
+			<%= "NG" %>
+			<% end %>
+		</td>
+		<td>
+			<% if user.alcohol_flag == true %>
+			<%= "OK" %>
+			<% else %>
+			<%= "NG" %>
+			<% end %>
 		</td>
 	</tr>
 

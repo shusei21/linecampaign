@@ -19,11 +19,11 @@ class HomeController < ApplicationController
 
   def send_users_csv(users)
     csv_data = CSV.generate do |csv|
-      header = %w(id created_at updated_at user_id campaign_flag)
+      header = %w(id created_at updated_at user_id campaign_flag haircare_flag skincare_flag bodycare_flag healthfood_flag perfume_flag alcohol_flag)
       csv << header
 
       @users.each do |user|
-        values = [user.id,user.created_at,user.updated_at,user.user_id,user.campaign_flag]
+        values = [user.id,user.created_at,user.updated_at,user.user_id,user.campaign_flag,user.haircare_flag,user.skincare_flag,user.bodycare_flag,user.healthfood_flag,user.perfume_flag,user.alcohol_flag]
         csv << values
       end
 
