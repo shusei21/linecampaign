@@ -3,7 +3,7 @@ require 'csv'
 class HomeController < ApplicationController
   before_action :authenticate_admin!
   def top
-    @users = User.all
+    @users = User.all.order(:id)
     @campaign_users = User.where(campaign_flag: true)
     @campaign_par_rate = @campaign_users.count.to_f / @users.count.to_f * 100
     @haircare_users = User.where(haircare_flag: true)
