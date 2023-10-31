@@ -31,6 +31,10 @@ class HomeController < ApplicationController
     end
   end
 
+  def richmenu
+
+  end
+
   def send_users_csv(users)
     csv_data = CSV.generate do |csv|
       header = %w(id created_at updated_at user_id campaign_flag haircare_flag skincare_flag bodycare_flag healthfood_flag perfume_flag alcohol_flag)

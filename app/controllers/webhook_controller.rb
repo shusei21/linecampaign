@@ -25,6 +25,14 @@ class WebhookController < ApplicationController
 			config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
 		}
 
+		if Rails.env.development?
+			client = Line::Bot::Client.new{ |config|
+			config.channel_secret = Rails.application.credentials[:LINE_CHANNEL_SECRET]
+			config.channel_token = Rails.application.credentials[:LINE_CHANNEL_TOKEN]
+			}
+		end
+			
+
 
   		events = client.parse_events_from(body)
   		events.each do |event|

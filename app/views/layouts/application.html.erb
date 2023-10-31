@@ -12,11 +12,13 @@
   <body>
     <header>
             <nav>
-                <% if admin_signed_in? %>
+              <%= link_to 'ユーザー一覧', root_path %>
+              <%= link_to 'リッチメニュー', richmenu_index_path %>
+              <% if admin_signed_in? %>
                 <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
-            <% else %>
+              <% else %>
                 <%= link_to 'ログイン', new_admin_session_path %>
-                <% end %>
+              <% end %>
             </nav>
         </header>
 

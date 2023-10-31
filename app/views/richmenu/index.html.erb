@@ -1,0 +1,13 @@
+<h1>リッチメニュー</h1>
+
+<p>デフォルトメニュー</p>
+<%= form_with(url: richmenu_create_path, local: true) do |f| %>
+  <%= f.file_field(:upload_file) %>
+  <button>アップロード</button>
+<% end %>
+
+<p>セカンドメニュー</p>
+<%= form_with(url: richmenu_create_path, local: true) do |f| %>
+  <%= f.file_field(:upload_file) %>
+  <button>アップロード</button>
+<% end %>
