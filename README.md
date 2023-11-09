@@ -5,24 +5,12 @@ LINE公式アカウントAPIを利用して、キャンペーン管理ができ�
 LINE公式アカウントお友だち獲得及びブロック防止の為、
 毎月簡単に応募できて当選連絡が直接お届けできる環境を構築したかった。
 
+# 機能
+* プレゼントキャンペーン応募機能
+* 商品カテゴリアンケート機能
+* ユーザー一覧DL機能
+
 # キャンペーン管理のフロー
+![flow](/flow.jpg)
 
-# ER図
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
