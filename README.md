@@ -13,4 +13,6 @@ LINE公式アカウントお友だち獲得及びブロック防止の為、
 # キャンペーン管理のフロー
 ![flow](/flow.jpg)
 
+# 商品カテゴリアンケートのフロー
+![flow_category](/flow_category.jpg)
 
