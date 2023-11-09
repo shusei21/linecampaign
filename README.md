@@ -1,9 +1,13 @@
-# README
+# 概要
+LINE公式アカウントAPIを利用して、キャンペーン管理ができるツールです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# プログラム作成の背景
+LINE公式アカウントお友だち獲得及びブロック防止の為、
+毎月簡単に応募できて当選連絡が直接お届けできる環境を構築したかった。
 
-Things you may want to cover:
+# キャンペーン管理のフロー
+
+# ER図
 
 * Ruby version
 
